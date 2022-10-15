@@ -35,9 +35,9 @@ func saveAsZip(path, txtFileName, txtContent string, inJST bool) {
 
 	modified := func() time.Time {
 		if inJST {
-			return time.Now()
-		} else {
 			return time.Now().In(JST)
+		} else {
+			return time.Now()
 		}
 	}()
 	zipFile, err := zipWriter.CreateHeader(&zip.FileHeader{
